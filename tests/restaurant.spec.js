@@ -89,7 +89,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   // objetoRetornado.consumption // Retorno: []
   // ```
   it('Verifique se objetoRetornado.consumption, após a criação do menu, retorna um array vazio.', () => {
-    expect(objetoRetornado.consumption = []).toEqual([]);
+    expect(objetoRetornado.consumption).toEqual([]);
   })
 
   // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
