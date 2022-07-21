@@ -94,6 +94,7 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (object) => ({ fetchMenu: () => object });
-const objetoRetornado = createMenu({ food: {}, drink: {} });
+const meuRestaurante = createMenu({ food: {}, drink: {} });
+meuRestaurante.consumption = [];
 
 module.exports = createMenu;
