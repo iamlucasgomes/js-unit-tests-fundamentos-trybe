@@ -51,13 +51,13 @@ const createMenu = require('../src/restaurant');
   IMPORTANTE: FAÇA OS TESTES E PASSOS DE ACORDO COM A SEQUÊNCIA INDICADA NO README DO PROJETO!
 
 */
-
+const menu = { food: {}, drink: {} };
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
     // fail('Teste vazio!');
     // TESTE 1: Verifique se função `createMenu()` retorna um objeto que possui a chave `fetchMenu`, a qual tem como valor uma função.
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
-    const menu = { food: {}, drink: {} };
+    
     expect(typeof createMenu(menu)).toEqual('object');
     expect(Object.keys(createMenu(menu))).toContain('fetchMenu');
     expect(typeof createMenu(menu).fetchMenu).toEqual('function');
@@ -67,7 +67,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   // const objetoRetornado = createMenu({ food: {}, drink: {} });
   // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
   it('Verifique se objetoRetornado.fetchMenu() retorna um objeto cujas chaves são somente `food` e `drink', () => {
-    const objetoRetornado = createMenu();
+    const objetoRetornado = createMenu(menu);
     expect(objetoRetornado.fetchMenu()).toEqual({ food: {}, drink: {} });
   })
 
