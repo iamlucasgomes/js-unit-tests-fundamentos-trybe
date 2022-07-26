@@ -115,13 +115,15 @@ const createMenu = (menu) => {
   restaurant.fetchMenu = () => menu;
   restaurant.consumption = [];
   restaurant.order = (string) => orderFromMenu(string);
-  restaurant.pay = () => { 
+  restaurant.pay = () => {
     let total = 0;
-      for (let consumption of restaurant.consumption) {
-        if (foodValue(consumption) || drinkValue(consumption)) total += (foodValue(consumption) || drinkValue(consumption));
+    for (let consumption of restaurant.consumption) {
+      if (foodValue(consumption) || drinkValue(consumption)) {
+        total += (foodValue(consumption) || drinkValue(consumption));
       }
-      return parseFloat((total * 1.1).toFixed(2));
-    };
+    }
+    return parseFloat((total * 1.1).toFixed(2));
+  };
   return restaurant;
 };
 
