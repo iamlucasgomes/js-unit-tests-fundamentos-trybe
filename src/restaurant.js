@@ -95,12 +95,33 @@
 const restaurant = {};
 
 const orderFromMenu = (string) => restaurant.consumption.push(string);
+const foodValue = (item) => {
+  for (let food of Object.keys(restaurant.fetchMenu().food)) {
+    if (item === food) {
+      return restaurant.fetchMenu().food[item];
+    }
+  }
+};
+
+const drinkValue = (item) => {
+  for (let drink of Object.keys(restaurant.fetchMenu().drink)) {
+    if (item === drink) {
+      return restaurant.fetchMenu().drink[item];
+    }
+  }
+};
 
 const createMenu = (menu) => {
   restaurant.fetchMenu = () => menu;
   restaurant.consumption = [];
   restaurant.order = (string) => orderFromMenu(string);
-  restaurant.pay = () => {};
+  restaurant.pay = () => { 
+    let total = 0;
+      for (let consumption of restaurant.consumption) {
+        if (foodValue(consumption) || drinkValue(consumption)) total += (foodValue(consumption) || drinkValue(consumption));
+      }
+      return parseFloat((total * 1.1).toFixed(2));
+    };
   return restaurant;
 };
 

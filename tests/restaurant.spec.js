@@ -151,10 +151,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
   // ```
   it('Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`', () => {
+    createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })
     restaurant.order('coxinha');
     restaurant.order('agua');
     restaurant.order('coxinha');
-    expect(restaurant.pay()).toEqual(11.7)
+    expect(restaurant.pay()).toEqual(12.87)
   })
   // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });
