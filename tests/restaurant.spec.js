@@ -1,4 +1,4 @@
-const { createMenu, orderFromMenu, restaurant } = require('../src/restaurant');
+const { createMenu, orderFromMenu, restaurant, drinkValue, foodValue } = require('../src/restaurant');
 
 
 /*

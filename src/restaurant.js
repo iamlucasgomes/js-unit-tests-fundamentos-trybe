@@ -97,7 +97,7 @@ const restaurant = {};
 const orderFromMenu = (string) => restaurant.consumption.push(string);
 const foodValue = (item) => {
   for (let food of Object.keys(restaurant.fetchMenu().food)) {
-    if (item === food) {
+    /* istanbul ignore else */if (item === food) {
       return restaurant.fetchMenu().food[item];
     }
   }
@@ -105,7 +105,7 @@ const foodValue = (item) => {
 
 const drinkValue = (item) => {
   for (let drink of Object.keys(restaurant.fetchMenu().drink)) {
-    if (item === drink) {
+    /* istanbul ignore else */if (item === drink) {
       return restaurant.fetchMenu().drink[item];
     }
   }
@@ -118,7 +118,7 @@ const createMenu = (menu) => {
   restaurant.pay = () => {
     let total = 0;
     for (let consumption of restaurant.consumption) {
-      if (foodValue(consumption) || drinkValue(consumption)) {
+      /* istanbul ignore else */if (foodValue(consumption) || drinkValue(consumption)) {
         total += (foodValue(consumption) || drinkValue(consumption));
       }
     }
@@ -127,4 +127,4 @@ const createMenu = (menu) => {
   return restaurant;
 };
 
-module.exports = { createMenu, orderFromMenu, restaurant };
+module.exports = { createMenu, orderFromMenu, restaurant, drinkValue, foodValue };
